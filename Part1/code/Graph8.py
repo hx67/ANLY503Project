@@ -65,7 +65,7 @@ def define_stopwords():
   return stop_words
 
 def collect_text(top = None):
-  lyrics_df = pd.read_csv("./music_lyrics.csv", index_col = 0)
+  lyrics_df = pd.read_csv("../data/music_lyrics.csv", index_col = 0)
 
   lyrics_df.lyrics = [
       'No Lyrics' if type(x) == float else x for x in lyrics_df.lyrics]
@@ -116,6 +116,6 @@ def generate_wordcloud(text, stop_words, coloring, output_path):
 
 stop_words = define_stopwords()
 text = collect_text(100)
-transformed_music_coloring = creat_mask("./86932.png")
+transformed_music_coloring = creat_mask("../86932.png")
 generate_wordcloud(
     text, stop_words, transformed_music_coloring, "music_wordcloud_top5.png")

@@ -15,12 +15,7 @@ import csv
 import re
 import nltk
 import matplotlib.pyplot as plt
-Twitter_DF = pd.read_csv("Twitter_song_dirty.csv" , sep=',', encoding='utf8')
-
-# regular expression to match key words in text attribute
-
-
-
+Twitter_DF = pd.read_csv("../data/Twitter_song_dirty.csv" , sep=',', encoding='utf8')
 
 # regular expression of all those non-alphabetic/number/space    
 regex2=re.compile('[^A-Za-z0-9\s\d\.]+') 
@@ -73,10 +68,7 @@ for i in Twitter_DF.index:
     # store post id and its link 
     else:
         id_link[ID] = Twitter_DF.ix[i, "permalink"]
-
-
-
-      
+  
 final_clean_percent = len(Twitter_DF.index) - irre_count - dirty_count - duplicate_count - format_wrong
 first_clean_percent = len(Twitter_DF.index) - dirty_count - format_wrong
 second_clean_percent = len(Twitter_DF.index) - dirty_count - duplicate_count - format_wrong
@@ -94,7 +86,7 @@ for index in dirty_index:
    #word_list = nltk.Text(all_word)
 #word_list.findall(r"<[Ii][Pp][Hh][Oo][Nn][Ee]><is>(<.*>)") 
 print("output our dataframe: ")
-outputFileName = "Twitter_song_output_cleaned2.csv"    
+outputFileName = "../data/Twitter_song_output_cleaned2.csv"    
 with open(outputFileName, 'w') as output:  
     Twitter_DF.to_csv(output, sep = ',')
 output.close()
@@ -125,7 +117,7 @@ top_n = 20
 #text.dispersion_plot([str(w) for w, f in fdist.most_common(top_n)])
 plot_freq_words(fdist)
 
-outputFileName = "Twitter_cleaning_count.txt"    
+outputFileName = "../data/Twitter_cleaning_count.txt"    
 with open(outputFileName, 'w') as output:  
     output.write(str(len(Twitter_DF)) + '\n')
     

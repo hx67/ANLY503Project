@@ -11,7 +11,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-music = pd.read_csv("music_lyrics.csv")
+music = pd.read_csv("../data/music_lyrics.csv")
 #music.head()
 d11 = music["date"]
 music["right_date"] = pd.to_datetime(d11)

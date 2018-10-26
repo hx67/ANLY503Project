@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 # Read Twitter cleaning statistics
 Twitter_stat = []
-inputFileName = "Twitter_cleaning_count.txt" 
+inputFileName = "../data/Twitter_cleaning_count.txt" 
 with open(inputFileName, 'r') as Input:
     Twitter_stat = Input.readlines()
 Input.close()

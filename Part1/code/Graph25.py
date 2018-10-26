@@ -10,7 +10,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-test = pd.read_csv("Twitter_data_with_sentiment_score.csv")
+test = pd.read_csv("../data/Twitter_data_with_sentiment_score.csv")
 d = test["date"]
 test["juest_date"] = pd.to_datetime(d)
 d2 = test["juest_date"]

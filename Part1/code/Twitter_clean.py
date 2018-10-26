@@ -15,12 +15,9 @@ import csv
 import re
 import nltk
 import matplotlib.pyplot as plt
-Twitter_DF = pd.read_csv("Twitter_song_dirty.csv" , sep=',', encoding='utf8')
+Twitter_DF = pd.read_csv("../data/Twitter_song_dirty.csv" , sep=',', encoding='utf8')
 
 # regular expression to match key words in text attribute
-
-
-
 
 # regular expression of all those non-alphabetic/number/space    
 regex2=re.compile('[^A-Za-z0-9\s\d\.]+') 
@@ -125,11 +122,6 @@ top_n = 20
 #text.dispersion_plot([str(w) for w, f in fdist.most_common(top_n)])
 plot_freq_words(fdist)
 
-
-
-
-
-
 plt.figure(figsize = [8, 8])
 bar_colors= ['r', 'b', 'g', 'm']
 plt.bar(x = ['total \ntwitter data', 'irrelevant \ncontent in text', 'duplicate \npost', 'link in \ntext'], height = [len(Twitter_DF)/len(Twitter_DF) * 100, (irrelevant_content)/len(Twitter_DF)*100, duplicate_count/len(Twitter_DF)*100, link_in_text /len(Twitter_DF)*100], color = bar_colors, width=0.8, bottom=None,  align='center', data=None)
@@ -137,14 +129,3 @@ plt.ylabel(s = 'percentage of data')
 plt.xlabel(s = 'data type')
 plt.title(s = 'types of data when doing data cleaning')
 plt.savefig('Twitter_cleaning_category.png')
-
-
-
-
-
-
-
-
-
-
-

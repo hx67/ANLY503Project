@@ -28,7 +28,7 @@ import re
 
 # Read Twitter cleaning statistics
 Twitter_sentiment = []
-inputFileName = "Twitter_sentiment_stat.txt" 
+inputFileName = "../data/Twitter_sentiment_stat.txt" 
 with open(inputFileName, 'r') as Input:
     Twitter_sentiment = Input.readlines()
 Input.close()

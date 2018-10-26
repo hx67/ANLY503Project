@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import squarify
 import numpy as np
 
-df = pd.read_csv('top20.csv')
+df = pd.read_csv('../data/top20.csv')
 count = df['count']
 y_pos = np.arange(len((df.artist)))
 plt.bar(y_pos, count)

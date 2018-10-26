@@ -10,7 +10,7 @@ from langdetect import detect, DetectorFactory
 import matplotlib.pyplot as plotter
 from collections import Counter
 
-df = pd.read_csv("music_lyrics.csv")
+df = pd.read_csv("../data/music_lyrics.csv")
 df.drop(df.columns[[0, 1]], axis=1, inplace = True)
 df1 = df.dropna()
 mydf = df1[df1.lyrics != 'No Lyrics']

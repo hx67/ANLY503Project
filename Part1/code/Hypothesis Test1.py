@@ -14,7 +14,7 @@ from statsmodels.stats.anova import anova_lm
 import statsmodels.api as sm
 import statsmodels.formula.api as sm1
 
-test1 = pd.read_csv("Twitter_data_with_sentiment_score.csv")
+test1 = pd.read_csv("../data/Twitter_data_with_sentiment_score.csv")
 d = test1["date"]
 test1["juest_date"] = pd.to_datetime(d)
 d2 = test1["juest_date"]

@@ -12,15 +12,16 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r ,echo=FALSE, warning=FALSE}
 library(ggplot2)
 ```
+#
 #Overview
 ### Music is an important component in the entertainment. Some people say that music may tell us what the artist wants to say, but the popular music tells us what the people want to hear. This project aims to use the sentimental analysis on lyrics of popular music and Twitter posts related to the songs to reveal the secret of the successful songs/lyrics and the impact of the emotions in songs to the audience.
 
 #Subquestions:
-## 1. What is the most frequent word used in the Populor Songs?
-## 2. What Have Changed to Popular Songs?
-## 3. Who is the most popular singers in last ten years in Billboard?
-## 4. Is there a pattern for those successful songs?
-## 5. Is there a relationship between the mood in songs with the Twitter Users' attitudes?
+### 1. What is the most frequent word used in the Populor Songs?
+### 2. What Have Changed to Popular Songs?
+### 3. Who is the most popular singers in last ten years in Billboard?
+### 4. Is there a pattern for those successful songs?
+### 5. Is there a relationship between the mood in songs with the Twitter Users' attitudes?
 
 #Data Collection and Data Cleaning
 
@@ -73,7 +74,7 @@ knitr::include_graphics("non_alphabetic_char_dist.png")
 ```
 
 <center>
-<font size="4"> [Graph 5(matplotlib), Source Code](/NO)</font>
+<font size="4"> [Graph 5(matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph5.py)</font>
 </center>
 
 #### The Hypen were most frequently used because people are more likely to refer a singer and his/her song together. @ and # are frequently used because they have their actual functionality in Twitter. We could also see that ! has a lot higher frequency than ?. From my interpretation, it is due to mood when user sending those Tweets. After listening song or hearing related news from some artists, Twitter users are less likely to raise questions, rather Twitter users are more likely to send Tweets to directly convey their emotions (like or dislike) and from sentiment analysis we could see Tweets with ! has sentiment score average at 0.6. 
@@ -86,7 +87,7 @@ knitr::include_graphics("dirty_data_dist.png")
 ```
 
 <center>
-<font size="4"> [Graph 6(matplotlib), Source Code](/NO)</font>
+<font size="4"> [Graph 6(matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph6.py)</font>
 </center>
 
 ### Twitter sentiment analysis
@@ -99,7 +100,7 @@ knitr::include_graphics("twitter_sentiment_score_freq.png")
 ```
 
 <center>
-<font size="4"> [Graph 7(matplotlib), Source Code](/NO)</font>
+<font size="4"> [Graph 7(matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph7.py)</font>
 </center>
 
 # 1. What are the most frequent words used in Populor Songs?
@@ -278,7 +279,7 @@ p
 ![](top_words.png)
 </center>
 <center>
-<font size="4">[Graph 13(Matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/NO)</font> 
+<font size="4">[Graph 13(Matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph13.py)</font> 
 </center>
   
 # 3. Who is the most popular singers in last ten years in Billboard?
