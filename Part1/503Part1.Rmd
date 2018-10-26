@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 ```
 #Overview
-### Music is an important component in the entertainment. Some people say that music may tell us what the artist wants to say, but the popular music tells us what the people want to hear. This project aims to use the sentimental analysis on lyrics of popular music and Twitter posts related to the songs to reveal the secret of the successful songs/lyrics and the impact of the emotions in songs to the audience.
+#### Music is an important component in the entertainment. Some people say that music may tell us what the artist wants to say, but the popular music tells us what the people want to hear. This project aims to use the sentimental analysis on lyrics of popular music and Twitter posts related to the songs to reveal the secret of the successful songs/lyrics and the impact of the emotions in songs to the audience.
 
 #Subquestions:
 ### 1. What is the most frequent word used in the Populor Songs?
@@ -28,7 +28,7 @@ library(ggplot2)
 
 #### This project collected the information for music and Twitter posts from different APIs.
 
-#### The billboard.py, a Python API for accessing music charts from Billboard.com, is used to collect the tiltles and artists' names. With the music information, the PyLyrics, a python module to get lyrics of songs from lyrics.wikia.com, helped to find those lyrics.
+#### The billboard.py, a Python API for accessing music charts from Billboard.com, is used to collect the titles and artists' names. With the music information, the PyLyrics, a python module to get lyrics of songs from lyrics.wikia.com, helped to find those lyrics.
 
 #### The biggest problem for the data cleaning in this part is those special signs in the titles or the singer lists:
 
@@ -54,7 +54,7 @@ knitr::include_graphics("Pie2.png")
 <font size="4"> [Graph 3(matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph4.py)</font>
 </center>
 
-#### We Can see that there are very few songs using languages other than English. The songs with different languages are deleted so that the sentimental analysis wil be more accurate.
+#### We can see that there are very few songs using languages other than English. The songs with different languages are deleted so that the sentimental analysis will be more accurate.
 
 #### The comparision between data before and after data cleaning
 
@@ -66,7 +66,7 @@ knitr::include_graphics("DataCleaning.png")
 
 ##Twitter Data
 
-#### To collect Twitter data of singer and song for past 10 years, we used Python package called GetOldTweets which enable us to put keywords and date range to collect related tweets. 300 Tweets were collected for each singer and song combination during the week when they were appeared on Billboard top 100 song. Collected Tweets were messy and contain lots of non-alphabetic symbols. And below is the top 20 non-alphabetic symbols in the Tweets.
+#### To collect Twitter data of singer and song for the past 10 years, we used a Python package called GetOldTweets which enable us to put keywords and date range to collect related tweets. 300 Tweets were collected for each singer and song combination during the week when they appeared on Billboard top 100 songs. Collected Tweets were messy and contain lots of non-alphabetic symbols. And below is the top 20 non-alphabetic symbols in the Tweets.
 
 ```{r, fig.align='center',echo=FALSE, out.width = '60%'}
 knitr::include_graphics("non_alphabetic_char_dist.png")
@@ -76,10 +76,10 @@ knitr::include_graphics("non_alphabetic_char_dist.png")
 <font size="4"> [Graph 5(matplotlib), Source Code](/NO)</font>
 </center>
 
-#### The Hypen were most frequently used because people are more likely to refer a singer and his/her song together. @ and # are frequently used because they have their actual functionality in Twitter. We could also see that ! has a lot higher frequency than ?. From my interpretation, it is due to mood when user sending those Tweets. After listening song or hearing related news from some artists, Twitter users are less likely to raise questions, rather Twitter users are more likely to send Tweets to directly convey their emotions (like or dislike) and from sentiment analysis we could see Tweets with ! has sentiment score average at 0.6. 
+#### The Hyphen was most frequently used because people are more likely to refer a singer and his/her song together. @ and # are frequently used because they have their actual functionality in Twitter. We could also see that ! has a lot of higher frequency than ?. From my interpretation, it is due to the mood when user sending those Tweets. After listening to the song or hearing related news from some artists, Twitter users are less likely to raise questions, rather Twitter users are more likely to send Tweets to directly convey their emotions (like or dislike) and from sentiment analysis, we could see Tweets with ! has sentiment score average at 0.6. 
 
 ### Twitter data cleaning
-#### When cleaning Twitter data, we first check whether same Twitter post link appear more than once in our dataset, if it does we remove all those duplicate records. Then we removed those non-alphabetic symbol  and also hyper-link from text data. And the plot below provide statistics on those records we cleaned.
+#### When cleaning Twitter data, we first check whether same Twitter post link appear more than once in our dataset, if it does we remove all those duplicate records. Then we removed those non-alphabetic symbols and also hyperlink from text data. And the plot below provides statistics on those records we cleaned.
 
 ```{r, fig.align='center', echo=FALSE, out.width = '60%'}
 knitr::include_graphics("dirty_data_dist.png")
@@ -91,8 +91,8 @@ knitr::include_graphics("dirty_data_dist.png")
 
 ### Twitter sentiment analysis
 
-#### To generate sentiment score for each Tweets, we build our sentiment analysis tool using Word2Vec and Deep Learning tools. We first obtain our training dataset which has 1.4 million of Twitter data with labelled sentiment score from Sentiment140. Then we tokenize both training data and our own Twitter data using NLTK tokenizer. Then vectorize each token using gensim Word2Vec model with vector size 512 and window size 10. Then construct our 7 layer Convolutional Neural Network model and trained it using our training data.
-#### With 10 fold cross validation, we gained 75% accuracy and we apply our model to predict sentiment score on collected Twitter data. Which yield frequency distribution as below:
+#### To analyze the sentiment in tweet, we generate a new feature, sentiment score, in the dataset. We build our sentiment analysis tool using Word2Vec and Deep Learning tools. We first obtain our training dataset which has 1.4 million Twitter data with labeled sentiment score from Sentiment140. Then we tokenize both training data and our own Twitter data using NLTK tokenizer. Then vectorize each token using  Gensim Word2Vec model with vector size 512 and window size 10. Then construct our 7 layers Convolutional Neural Network model and trained it using our training data.
+#### With 10 fold cross-validation, we gained 75% accuracy and we apply our model to predict sentiment score on collected Twitter data. Which yield frequency distribution as below:
 
 ```{r, fig.align='center', echo=FALSE, out.width = '60%'}
 knitr::include_graphics("twitter_sentiment_score_freq.png")
@@ -103,7 +103,7 @@ knitr::include_graphics("twitter_sentiment_score_freq.png")
 </center>
 
 # 1. What are the most frequent words used in Populor Songs?
-#### Let's start to find our answer by showing some EDA plot. In the first sub-question, our team want to simply study what is the word used most frequently in the lyrics. We first use the word cloud plot for all the songs in Billboard Top 100 to study it. 
+#### Let's start to find our answer by showing some EDA plots. In the first sub-question, this project aims to simply study what is the word used most frequently in the lyrics. We first use the word cloud plot for all the songs in Billboard Top 100 to study it. 
 
 ```{r, fig.align='center', echo=FALSE, out.width = '100%'}
 knitr::include_graphics("music_wordcloud.png")
@@ -112,7 +112,7 @@ knitr::include_graphics("music_wordcloud.png")
 <font size="4"> [Graph 8(matplotlib, Word Cloud), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph9.py)</font> 
 </center>
 
-#### According can see that KNOW and LIKE are the most frequent words in the songs. This suggests that there are a lot of songs related to love in the songs. However, we can also see offensive and slang Words like NIGGA and BITCH in the plot. Most of these offensive words indicates hateful thoughts and moods. We furtherly study the lyrics by plotting the world cloud for those songs which had reached to Top 5 in the Billboard.
+#### According can see that KNOW and LIKE are the most frequent words in the songs. This suggests that there are a lot of songs related to love in the songs. However, we can also see offensive and slang Words like NIGGA and BITCH in the plot. Most of these offensive words indicate hateful thoughts and moods. We furtherly study the lyrics by plotting the world cloud for those songs which had reached to Top 5 in the Billboard.
 
 ```{r, fig.align='center', echo=FALSE, out.width = '100%'}
 knitr::include_graphics("music_wordcloud_top5.png")
@@ -130,13 +130,13 @@ knitr::opts_chunk$set(fig.width=10, fig.height=5)
 
 # 2. What Have Changed to Popular Songs?
 
-Now, our team want to study the trend for the development of popular music throughout the years. The plots will show how the names of songs changed, what kind of songs will stay in the Billboard longer
+#### Now, our team wants to study the trend for the development of popular music throughout the years. The plots will show how the names of songs changed, what kind of songs will stay in the Billboard longer:
 
 **Source**: BillBoard Top 100 Weekly List, 1990 - 2010  
 **Data Grabbed**: Song Name, Artist, Number of Weeks Stayed on Billboard, Year, Peak Position, and Lyrics
   
   
-### 1. How did the Song Name Change from 1990 to 2017?  
+### (1). How did the Song Name Change from 1990 to 2017?  
 #### - Calculated the Average Number of Words in Song Names and Visualized by Year  
 #### - The Avergae Number of Words Shortened Significantly
 #### - Shorter Song names makes songs more popular
@@ -174,7 +174,7 @@ p
 <font size="4">[Graph 10(Plotly), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph10.R)</font> 
 </center>
 
-### 2. Is There Any Difference Between the Top 50 Songs and the Bottom 50 Songs?  
+### (2). Is There Any Difference Between the Top 50 Songs and the Bottom 50 Songs?  
 #### - This time we calculated average number of words in song names again, but split by Top 50 and Bottom 50   
 #### - The Bottom 50, the relatively less popular songs, have more variations  
 #### - The Top 50, the most popular songs, have more steady decrease
@@ -232,7 +232,7 @@ p
 <font size="4">[Graph 11(Plotly), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph12.R)</font> 
 </center>
 
-### 3. What Songs Are More Likely to Stay Popular for Longer?  
+### (3). What Songs Are More Likely to Stay Popular for Longer?  
 
 #### - Measured by Number of Weeks Stayed on Billboard  
 #### - By Year and Number of Words in Song Names
@@ -273,7 +273,7 @@ p
 <font size="4">[Graph 12(Plotly), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph12.R)</font> 
 </center>
 
-### 4. What Lyrics Made Songs Popular from 2008 - 2018?
+### (4). What Lyrics Made Songs Popular from 2008 - 2018?
 
 #### - Ranked artists by number of songs from them that were ever on BillBoard  
 #### - Ranked the Top 20 most common words used by those popular singers
@@ -285,12 +285,10 @@ p
 <center>
 <font size="4">[Graph 13(Matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/NO)</font> 
 </center>
-  
-
 
 # 3. Who is the most popular singers in last ten years in Billboard?
 
-#### First let us have a look at those artists with the most songs on Billboard's Top 100 Hits in the last ten years.
+#### First, let us have a look at those artists with the most songs on Billboard's Top 100 Hits in the last ten years.
 
 ```{r,fig.align='center', echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
 knitr::include_graphics("top20count.jpg")
@@ -315,10 +313,13 @@ knitr::include_graphics("Scatterplot.png")
 
 <center> <h4>Graph 17(Tableau)</h4> </center>
 
-#### It seems there is a logarithm relationship between the count and the mean total weeks of songs on the Billboard.
+#### It seems there is a logarithm relationship between the count and the mean total weeks of songs on the Billboard. And the plots suggest that quantatiy in popular music field is negatively correlated to the quality.
 
 # 4.What is the characters for those popular songs' lyrics?
-# Talyor Swift Example
+#### In this sub-question, we want to study what kind of lyrics or what sentiment/mood in lyrics is more likely to make the song popular. In the first part of these project, the team studies a sample singer, Talyor Swift, thoroughly and uses EDA plots to study the pattern of the whole dataset which contains the lyrics for all popular songs in the Billboard Top100. These part will lay a foundation for the study in the second part of the project.
+
+### (1).Talyor Swift Example
+#### Last sub-question shows that Talyor Swift is one of the most successful singers in the past ten years. Besides, her songs include many different moods or themes. Talyor Swift is a good sample to start our study. We use the lyrics in all Talyor's songs in this part.
 
 ```{r warning=FALSE, ,fig.align='center', include=FALSE, out.width='100%'}
 library(magrittr)
@@ -364,7 +365,7 @@ ggplot(length_df, aes(x=length)) +
 <font size="4"> [Graph 18(ggplot), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph18.R)</font> 
 </center>
 
-#### The average word count for the tracks stands close to 375, and chart shows that maximum number of songs fall in between 345 to 400 words. The density plot shows that the distribution is close to a normal distribution.
+#### The average word count for the tracks stands close to 375, and the chart shows that the maximum number of songs fall in between 345 to 400 words. The density plot shows that the distribution is close to a normal distribution.
 
 ```{r ,fig.align='center', echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
 lyrics %>% 
@@ -400,7 +401,9 @@ length_df %>%
 <font size="4"> [Graph 20(ggplot), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph20.R)</font> 
 </center>
 
-#### This plot shows the similiar result. This means, to be a super star, your need to convey more information in your songs, with which you can influence your audience.
+#### This plot shows a similar result. This means, to be a superstar, you need to convey more information in your songs, with which you can influence your audience.
+
+#### Now let us start the study on the sentiment in songs. The lyrics are first mapped to sentiment score in R and the scores are classified to 8 kinds of moods: Anger, Anticipation, Disgust, Fear, Joy, Sadness, Surprise, and Trust. At the same time, the scores are binned into two categories, representing the positive sentiments and the negative sentiments respectively.
 
 ```{r,fig.align='center', echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
 lyrics_text <- lyrics$lyric
@@ -432,7 +435,7 @@ theme_minimal()
 <font size="4"> [Graph 21(ggplot), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph21.R)</font> 
 </center>
 
-#### Basically, the most frequent mood in the songs is positve. And we can see that Talyor Swift have expressed all kinds emotions in her songs. Joy, anticipation and trust emerge as the top 3.
+#### In the Talyor Swift example, the most frequent mood in the songs is positive. And we can see that Talyor Swift has expressed all kinds emotions in her songs. Joy, anticipation, and trust emerge as the top 3.
 
 ```{r,fig.align='center', echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
 lyrics$lyric <- as.character(lyrics$lyric)
@@ -465,7 +468,7 @@ coord_flip()
 <font size="4"> [Graph 22(ggplot), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph22.R)</font> 
 </center>
 
-#### Now that we have figured out the overall sentiment scores, we should find out the top words that contribute to various emotions and positive/negative sentiment.The visualization given shows that while the word bad is predominant in emotions such as anger, disgust, sadness and fear, Surprise and trust are driven by the word good.
+#### Now that we have figured out the overall sentiment scores, we should find out the top words that contribute to various emotions and positive/negative sentiment. The visualization is given shows that while the word bad is predominant in emotions such as anger, disgust, sadness, and fear, Surprise and trust are driven by the word good.
 
 ```{r,fig.align='center', echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
 grid.col = c("2006" = "#E69F00", "2008" = "#56B4E9", "2010" = "#009E73", "2012" = "#CC79A7", "2014" = "#D55E00", "2017" = "#00D6C9", "anger" = "grey", "anticipation" = "grey", "disgust" = "grey", "fear" = "grey", "joy" = "grey", "sadness" = "grey", "surprise" = "grey", "trust" = "grey")
@@ -492,9 +495,10 @@ title("Relationship between emotion and song's year of release")
 <font size="4"> [Graph 23(ggplot), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph23.R)</font> 
 </center>
 
-#### We can see that joy has maximum share for the years 2010 and 2014. Overall, surprise, disgust and anger  are the emotions with least score; however, in comparison to other years 2017 has maximum contribution for disgust. Coming to anticipation, 2010 and 2012 have higher contribution in comparison to other years.
+#### We can see that joy has the maximum share for the years 2010 and 2014. Overall, surprise, disgust, and anger are the emotions with the least score; however, in comparison to other years, 2017 has the maximum contribution for disgust. Coming to anticipation, 2010 and 2012 have a higher contribution in comparison to other years.
 
-#### Some other visualizations graphed by seaborn to see the popularity of the songs and how it changed during the years or even months.
+### (2). EDA for the whole lyrics dataset
+#### In the second part of this project, we will furtherly study the trend and the sentiment for all the songs in Billboard just like the Talyor Swift example showed above. In the part of the project, we use some other visualizations graphed by seaborn to see the popularity of the songs and how it changed during the years or even months. These EDA plots could help us to find some interesting features in the dataset.
 
 <center>
 ![](project52.png)
@@ -503,7 +507,7 @@ title("Relationship between emotion and song's year of release")
 <font size="4"> [Graph 24(Seaborn), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph24.py)</font> 
 </center>
 
-#### The graph above shows the density of relatively time x-aixs and the lengths of weeks that songs stayed on board. It's eaily to tell that the graph has two part of high density, which means in the middle time of these years. Around year 2014, there are lot great songs been created. Also, around year 2012, a lot songs been created but did not stay on the board as long as the songs been created in 2014.
+#### The graph above shows the density of relatively time x-axis and the lengths of weeks that songs stayed on board. It's easy to tell that the graph has two part of high density, which means in the middle time of these years. Around the year 2014, there are lot great songs been created. Also, around the year 2012, a lot of songs been created but did not stay on the board as long as the songs been created in 2014.
 
 <center>
 ![](project53.png)
@@ -512,7 +516,7 @@ title("Relationship between emotion and song's year of release")
 <font size="4"> [Graph 25(Seaborn), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph25.py)</font> 
 </center>
 
-#### The graph above shows the number of favorites and retweets to the songs in ten years. As we can directly see, there is a huge difference between before year 2017 and after year 2017. After year 2017, the number of favorties and retweets increased incredibly. That tells either the songs on the board have more influence after year 2017 or people started to be carzy of using tweets.
+#### The graph above shows the number of favorites and retweets to the songs in ten years. As we can directly see, there is a huge difference between before the year 2017 and after the year 2017. After the year 2017, the number of favorites and retweets increased incredibly. That tells either the songs on the board have more influence after the year 2017 or people started to be crazy about using tweets.
 
 <center>
 ![](project54.png)
@@ -522,7 +526,7 @@ title("Relationship between emotion and song's year of release")
 <font size="4"> [Graph 26(Seaborn), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph26.py)</font> 
 </center>
 
-#### The graph above shows the distribution of songs' popularity in each year. As we can see, 2017 has highest mean, which means most songs been created in 2017 are more popular than other years. However, for 2008, although the high point is really high in this year, but the mean is low. which means it has both good songs and bad songs in this year.
+#### The graph above shows the distribution of songs' popularity each year. As we can see, 2017 has the highest mean, which means most songs been created in 2017 are more popular than other years. However, for 2008, although the high point is really high this year, the mean is low. which means it has both good songs and bad songs this year.
 
 <center>
 ![](project55.png)
@@ -532,11 +536,11 @@ title("Relationship between emotion and song's year of release")
 <font size="4"> [Graph 27(Seaborn), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph27.py)</font> 
 </center>
 
-#### The graph above shows the popularity of the songs in each month these years. From the graph, we also expected to see some trends through the changing of the color in the graph. And as the result we can tell from the graph, it did has a slight pattern of the increasing popularity from 2008 to around 2013. However, after that, popularity of the songs in each month became unpredictable.
+#### The graph above shows the popularity of the songs in each month these years. From the graph, we also expected to see some trends through the changing of the color in the graph. And as the result we can tell from the graph, it did have a slight pattern of the increasing popularity from 2008 to around 2013. However, after that, the popularity of the songs each month became unpredictable.
 
 # 5. Is there a relationship between the mood in songs with the Twitter Users' attitudes?
 
-#### The fifth sub-question is whether there is relationship between the sentiment analysis resutls from tweets and lyrics. In other words, the question becomes "Do the lyrics' attitudes influence people's comments about them on tweets?" and "whether the result of two attitudes' connection influence the popularity of the songs?"
+#### The fifth sub-question is whether there is a relationship between the sentiment analysis results from tweets and lyrics. In other words, the question becomes "Do the lyrics' attitudes influence people's comments about them on tweets?" and "whether the result of two attitudes' connection influence the popularity of the songs?"
 
 #### In order to answer the questions above, we have to take a look of the results of sentiment analysis from tweets and lyrics.
 
@@ -548,9 +552,9 @@ title("Relationship between emotion and song's year of release")
 <font size="4"> [Graph 28(Seaborn), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph28.py)</font> 
 </center>
 
-#### The graph above shows the two-dimensional plot of sentiment analysis attitude scores. As we can see, it seems like there is no linear relationship between the tweets' attitude and lyrics' attitude. However, we can not be sure yet untill we run some tests. Still, the graph gives us one interesting information. Most points loacte on the top and bottom of the graph, which means most of songs are either too negative or too positive. And those songs have more attetion on tweets than the normal songs.
+#### The graph above shows the two-dimensional plot of sentiment analysis attitude scores. As we can see, it seems like there is no linear relationship between the tweets' attitude and lyrics' attitude. However, we can not be sure yet until we run some tests. Still, the graph gives us one interesting information. Most points are located on the top and bottom of the graph, which means most of the songs are either too negative or too positive. And those songs have more attention to tweets than the normal songs.
 
-#### Next, we took a look into each indiviual analysis result.
+#### Next, let us take a look at each individual analysis result.
 
 <center>
 ![](project56.png)
@@ -559,7 +563,7 @@ title("Relationship between emotion and song's year of release")
 <font size="4"> [Graph 29(Seaborn), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph29.py)</font> 
 </center>
 
-#### As the boxplot shows above, we can see that lyrics have much higher attitude points than tweets. Most of tweets' attitude points are below normal, which means they are more negative while most lyrics of the songs are tend to be positive. However, we still can not be 100% sure that they are significant different, so we will run one-way ANOVA test to testify our thoughts.
+#### As the boxplot shows above, we can see that lyrics have much higher attitude points than tweets. Most of the tweets' attitude points are below normal, which means they are more negative while most lyrics of the songs tend to be positive. However, we still cannot be 100% sure that they are significant differences, so we will run one-way ANOVA test to testify our thoughts.
 
 ## Hypothesis test of One-Way ANOVA test.
 <center>
@@ -569,7 +573,7 @@ title("Relationship between emotion and song's year of release")
 <font size="4"> [Hypothesis1, Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Hypothesis%20Test2.py)</font> 
 </center>
 
-#### As the p-value show above, since the p-value is below 0.05, which rejects the null hypothesis. Then it means there is a significant difference between lyrics' attitude points and tweets' attitude points. Since we know they are different, we are moving to the next part, to test whether there is a relationship between lyrics' attitude and tweets' attitude.
+#### As the p-value show above, since the p-value is below 0.05, which rejects the null hypothesis. Then it means there is a significant difference between lyrics' attitude points and tweets' attitude points. Since we know they are different, we are moving to the next part, to test whether there is a relationship between the lyrics' attitude and tweets' attitude.
 
 ## Hypothesis test of Linear regression test.
 
@@ -581,6 +585,9 @@ title("Relationship between emotion and song's year of release")
 <font size="4"> [Hypothesis2, Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Hypothesis%20Test1.py)</font> 
 </center>
 
-#### As the results show above, we used the number of weeks that songs stayed on board as addition term that may relates to the attitude points. Then we found out that all p-vlaues are much greater than 0.05, which means it failed to reject he hyoithesis test, and it means there is no significant linear relationship between Tweets' attitude points and neither lyrics' attitude points nor the number of weeks that songs stayed on board( which may also be thought as popularity).
+#### As the results show above, we used the number of weeks that songs stayed on board as addition term that may relate to the attitude points. Then we found out that all p-values are much greater than 0.05, which means it failed to reject the null hypothesis, and it means there is no significant linear relationship between Tweets' attitude points and neither lyrics' attitude points nor the number of weeks that songs stayed on board( which may also be thought as popularity).
 
-#### Through the hypothesis tests we did above, we found out that tweets' attitude and lyrics' attitude of the songs have significant differences, and there is no significant linear relationship between them. However, that does not tell the everything between them. Adding other possible related terms and use other forward tests may still get some good results. So, in the next part of project, we gonna dig much deeper to discover the possibilities that they connect with each other, and how they may influence each other in any possible ways.
+#### Through the hypothesis tests we did above, we found out that tweets' attitude and lyrics' attitude of the songs have significant differences, and there is no significant linear relationship between them. However, that does not tell everything between them. Adding other possible related terms and use other forward tests may still get some good results. So, in the next part of the project, we gonna dig much deeper to discover the possibilities that they connect with each other, and how they may influence each other in any possible ways.
+
+# Conclusion and Future Study
+#### In the first part of this project, the team collects the data for Music Lyrics and Twitter and finishes the sentimental analysis on the lyrics and tweets. The EDA plots are used to partially answers the five sub-questions. In the second part of the project, our team will further study these successful popular songs and the words/sentiments in the lyrics. We will also try other methods to find out the patterns for the audiences' attitudes on the songs.
