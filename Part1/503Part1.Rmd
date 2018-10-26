@@ -139,6 +139,7 @@ Now, our team want to study the trend for the development of popular music throu
 ### 1. How did the Song Name Change from 1990 to 2017?  
 #### - Calculated the Average Number of Words in Song Names and Visualized by Year  
 #### - The Avergae Number of Words Shortened Significantly
+#### - Shorter Song names makes songs more popular
 
 ```{r ,fig.align='center', echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
 trace1 <- list(
@@ -174,9 +175,10 @@ p
 </center>
 
 ## 2. Is There Any Difference Between the Top 50 Songs and the Bottom 50 Songs?  
-#### - This time we calculated average num of words in song names again, but split by Top 50 and Bottom 50   
+#### - This time we calculated average number of words in song names again, but split by Top 50 and Bottom 50   
 #### - The Bottom 50, the relatively less popular songs, have more variations  
 #### - The Top 50, the most popular songs, have more steady decrease
+#### - For the relatively more popular songs, decrease in length of song names is a trend
 
 ```{r ,fig.align='center', echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
 trace1 <- list(
@@ -234,6 +236,8 @@ p
 
 #### - Measured by Number of Weeks Stayed on Billboard  
 #### - By Year and Number of Words in Song Names
+#### - In the 90's, A song with short names is more likely to stay on the list for longer
+#### - The Average number of weeks popular songs can stay on billboard have dropped significantly present todays.
 
 ```{r ,fig.align='center', echo=FALSE, out.width = '100%', message=FALSE, warning=FALSE}
 layout <- list(
@@ -273,6 +277,7 @@ p
 
 #### - Ranked artists by number of songs from them that were ever on BillBoard  
 #### - Ranked the Top 20 most common words used by those popular singers
+#### - The word 'like' is the mostly used by the artists
 
 <center>
 ![](top_words.png)
@@ -281,14 +286,7 @@ p
 <font size="4">[Graph 13(Matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/NO)</font> 
 </center>
   
-### How are these common words used by the Top 20 Artists?  
-#### - 5. Visualized there Lexical Dispersion Over the Most Common words
-<center>
-![](idp.png)
-</center>
-<center>
-<font size="4"> [Graph 14(Matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/No)</font> 
-</center>
+
 
 # 3. Who is the most popular singers in last ten years in Billboard?
 
