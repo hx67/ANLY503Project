@@ -1,5 +1,5 @@
 ---
-title: "ANLY503 Project Part1"
+title: "What is the impact of words and sentiments in lyrics on People¡¯s attitude towards the songs?"
 author: "Hong Xu"
 date: "October 14, 2018"
 output: html_document
@@ -16,11 +16,11 @@ library(ggplot2)
 ### Music is an important component in the entertainment. Some people say that music may tell us what the artist wants to say, but the popular music tells us what the people want to hear. This project aims to use the sentimental analysis on lyrics of popular music and Twitter posts related to the songs to reveal the secret of the successful songs/lyrics and the impact of the emotions in songs to the audience.
 
 #Subquestions:
-## 1. What is the most frequent word used in the Populor Songs?
-## 2. What Have Changed to Popular Songs?
-## 3. Who is the most popular singers in last ten years in Billboard?
-## 4. Is there a pattern for those successful songs?
-## 5. Is there a relationship between the mood in songs with the Twitter Users' attitudes?
+### 1. What is the most frequent word used in the Populor Songs?
+### 2. What Have Changed to Popular Songs?
+### 3. Who is the most popular singers in last ten years in Billboard?
+### 4. Is there a pattern for those successful songs?
+### 5. Is there a relationship between the mood in songs with the Twitter Users' attitudes?
 
 #Data Collection and Data Cleaning
 
@@ -174,7 +174,7 @@ p
 <font size="4">[Graph 10(Plotly), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph10.R)</font> 
 </center>
 
-## 2. Is There Any Difference Between the Top 50 Songs and the Bottom 50 Songs?  
+### 2. Is There Any Difference Between the Top 50 Songs and the Bottom 50 Songs?  
 #### - This time we calculated average number of words in song names again, but split by Top 50 and Bottom 50   
 #### - The Bottom 50, the relatively less popular songs, have more variations  
 #### - The Top 50, the most popular songs, have more steady decrease
@@ -320,7 +320,7 @@ knitr::include_graphics("Scatterplot.png")
 # 4.What is the characters for those popular songs' lyrics?
 # Talyor Swift Example
 
-```{r ,fig.align='center', echo=FALSE, out.width = '100%', warning=FALSE}
+```{r warning=FALSE, ,fig.align='center', include=FALSE, out.width='100%'}
 library(magrittr)
 library(stringr)
 library(dplyr)
@@ -347,7 +347,9 @@ length_df <- lyrics %>%
 length_df %>% 
   arrange(length) %>%
   slice(1:10)
+```
 
+```{r ,fig.align='center', echo=FALSE, out.width = '100%', warning=FALSE}
 ggplot(length_df, aes(x=length)) + 
   geom_histogram(bins=30,aes(fill = ..count..)) + 
   geom_vline(aes(xintercept=mean(length)),
@@ -492,7 +494,7 @@ title("Relationship between emotion and song's year of release")
 
 #### We can see that joy has maximum share for the years 2010 and 2014. Overall, surprise, disgust and anger  are the emotions with least score; however, in comparison to other years 2017 has maximum contribution for disgust. Coming to anticipation, 2010 and 2012 have higher contribution in comparison to other years.
 
-### Some other visualizations graphed by seaborn to see the popularity of the songs and how it changed during the years or even months.
+#### Some other visualizations graphed by seaborn to see the popularity of the songs and how it changed during the years or even months.
 
 <center>
 ![](project52.png)
@@ -534,7 +536,7 @@ title("Relationship between emotion and song's year of release")
 
 # 5. Is there a relationship between the mood in songs with the Twitter Users' attitudes?
 
-## The fifth sub-question is whether there is relationship between the sentiment analysis resutls from tweets and lyrics. In other words, the question becomes "Do the lyrics' attitudes influence people's comments about them on tweets?" and "whether the result of two attitudes' connection influence the popularity of the songs?"
+#### The fifth sub-question is whether there is relationship between the sentiment analysis resutls from tweets and lyrics. In other words, the question becomes "Do the lyrics' attitudes influence people's comments about them on tweets?" and "whether the result of two attitudes' connection influence the popularity of the songs?"
 
 #### In order to answer the questions above, we have to take a look of the results of sentiment analysis from tweets and lyrics.
 
