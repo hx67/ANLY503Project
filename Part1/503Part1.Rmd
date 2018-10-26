@@ -530,7 +530,7 @@ title("Relationship between emotion and song's year of release")
 
 # 5. Is there a relationship between the mood in songs with the Twitter Users' attitudes?
 
-## The fifth sub-question is whether there is relationship between the sentiment analysis resutls from tweets and lyrics. In other words, the question becomes "Do the lyrics' attitudes influence people's comments about them on tweets?" and "whether the result of two attitudes' connection influence the popularity of the songs?"
+#### The fifth sub-question is whether there is relationship between the sentiment analysis resutls from tweets and lyrics. In other words, the question becomes "Do the lyrics' attitudes influence people's comments about them on tweets?" and "whether the result of two attitudes' connection influence the popularity of the songs?"
 
 #### In order to answer the questions above, we have to take a look of the results of sentiment analysis from tweets and lyrics.
 
