@@ -1,5 +1,5 @@
 ---
-title: "ANLY503 Project Part1"
+title: "What is the impact of words and sentiments in lyrics on People's attitude towards the songs?"
 author: "Hong Xu"
 date: "October 14, 2018"
 output: html_document
@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r ,echo=FALSE, warning=FALSE}
 library(ggplot2)
 ```
-#
+
 #Overview
 ### Music is an important component in the entertainment. Some people say that music may tell us what the artist wants to say, but the popular music tells us what the people want to hear. This project aims to use the sentimental analysis on lyrics of popular music and Twitter posts related to the songs to reveal the secret of the successful songs/lyrics and the impact of the emotions in songs to the audience.
 
@@ -174,7 +174,7 @@ p
 <font size="4">[Graph 10(Plotly), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph10.R)</font> 
 </center>
 
-## 2. Is There Any Difference Between the Top 50 Songs and the Bottom 50 Songs?  
+### 2. Is There Any Difference Between the Top 50 Songs and the Bottom 50 Songs?  
 #### - This time we calculated average num of words in song names again, but split by Top 50 and Bottom 50   
 #### - The Bottom 50, the relatively less popular songs, have more variations  
 #### - The Top 50, the most popular songs, have more steady decrease
@@ -314,7 +314,7 @@ knitr::include_graphics("Scatterplot.png")
 # 4.What is the characters for those popular songs' lyrics?
 # Talyor Swift Example
 
-```{r ,fig.align='center', echo=FALSE, out.width = '100%', warning=FALSE}
+```{r warning=FALSE, ,fig.align='center', include=FALSE, out.width='100%'}
 library(magrittr)
 library(stringr)
 library(dplyr)
@@ -341,7 +341,9 @@ length_df <- lyrics %>%
 length_df %>% 
   arrange(length) %>%
   slice(1:10)
+```
 
+```{r ,fig.align='center', echo=FALSE, out.width = '100%', warning=FALSE}
 ggplot(length_df, aes(x=length)) + 
   geom_histogram(bins=30,aes(fill = ..count..)) + 
   geom_vline(aes(xintercept=mean(length)),
