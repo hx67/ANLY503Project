@@ -1,6 +1,6 @@
 ---
-title: "What is the impact of words and sentiments in lyrics on People¡¯s attitude towards the songs?"
-author: "Hong Xu"
+title: "What is the impact of words and sentiments in lyrics on PeopleÂ¡Â¯s attitude towards the songs?"
+author: "Group3: Hong Xu, Tianjing Cai, Lufei Wang, Zihao Li, Jiaxu He"
 date: "October 14, 2018"
 output: html_document
 ---
