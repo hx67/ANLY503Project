@@ -44,14 +44,14 @@ library(ggplot2)
 knitr::include_graphics("Pie1.png")
 ```
 <center>
-<font size="4"> [Graph 2(matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph3.py)</font>
+<font size="4"> [Graph 2(matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph2.py)</font>
 </center>
 
 ```{r, fig.align='center',echo=FALSE, out.width = '80%'}
 knitr::include_graphics("Pie2.png")
 ```
 <center>
-<font size="4"> [Graph 3(matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph4.py)</font>
+<font size="4"> [Graph 3(matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph3.py)</font>
 </center>
 
 #### We can see that there are very few songs using languages other than English. The songs with different languages are deleted so that the sentimental analysis will be more accurate.
@@ -73,7 +73,7 @@ knitr::include_graphics("non_alphabetic_char_dist.png")
 ```
 
 <center>
-<font size="4"> [Graph 5(matplotlib), Source Code](/NO)</font>
+<font size="4"> [Graph 5(matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph5.py)</font>
 </center>
 
 #### The Hyphen was most frequently used because people are more likely to refer a singer and his/her song together. @ and # are frequently used because they have their actual functionality in Twitter. We could also see that ! has a lot of higher frequency than ?. From my interpretation, it is due to the mood when user sending those Tweets. After listening to the song or hearing related news from some artists, Twitter users are less likely to raise questions, rather Twitter users are more likely to send Tweets to directly convey their emotions (like or dislike) and from sentiment analysis, we could see Tweets with ! has sentiment score average at 0.6. 
@@ -86,7 +86,7 @@ knitr::include_graphics("dirty_data_dist.png")
 ```
 
 <center>
-<font size="4"> [Graph 6(matplotlib), Source Code](/NO)</font>
+<font size="4"> [Graph 6(matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph6.py)</font>
 </center>
 
 ### Twitter sentiment analysis
@@ -99,7 +99,7 @@ knitr::include_graphics("twitter_sentiment_score_freq.png")
 ```
 
 <center>
-<font size="4"> [Graph 7(matplotlib), Source Code](/NO)</font>
+<font size="4"> [Graph 7(matplotlib), Source Code](https://github.com/hx67/ANLY503Project/blob/master/Part1/code/Graph7.py)</font>
 </center>
 
 # 1. What are the most frequent words used in Populor Songs?
