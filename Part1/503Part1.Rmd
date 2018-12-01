@@ -130,13 +130,13 @@ knitr::opts_chunk$set(fig.width=10, fig.height=5)
 
 # 2. What Have Changed to Popular Songs?
 
-#### Now, our team wants to study the trend for the development of popular music throughout the years. The plots will show how the names of songs changed, what kind of songs will stay in the Billboard longer:
+#### Now, our team wants to study the trend for the development of popular music throughout the years. The plots will show how the song names changed and what kind of songs are likely to stay in the Billboard longer:
 
 **Source**: BillBoard Top 100 Weekly List, 1990 - 2010  
 **Data Grabbed**: Song Name, Artist, Number of Weeks Stayed on Billboard, Year, Peak Position, and Lyrics
   
   
-### (1). How did the Song Name Change from 1990 to 2017?  
+### (1). How did the Song Names Change from 1990 to 2017?  
 #### - Calculated the Average Number of Words in Song Names and Visualized by Year  
 #### - The Avergae Number of Words Shortened Significantly
 #### - Shorter Song names makes songs more popular
